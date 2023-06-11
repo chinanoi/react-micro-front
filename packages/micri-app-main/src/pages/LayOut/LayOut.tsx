@@ -70,6 +70,30 @@ const LayOut = () => {
             onClick: clickItem
         },
         {
+            key: '/sub-react',
+            icon: React.createElement(HomeOutlined), // <HomeOutlined />的意思
+            label: '微应用react18',
+            onClick: clickItem
+        },
+        {
+            key: '/sub-vue',
+            icon: React.createElement(HomeOutlined), // <HomeOutlined />的意思
+            label: '微应用 Vue3',
+            onClick: clickItem
+        },
+        {
+            key: '/sub-html',
+            icon: React.createElement(HomeOutlined), // <HomeOutlined />的意思
+            label: '微应用Angular9',
+            onClick: clickItem
+        },
+        {
+            key: '/juejin',
+            icon: React.createElement(SettingOutlined),
+            label: '掘金',
+            onClick: clickItem
+        },
+        {
             key: '/system',
             icon: React.createElement(SettingOutlined),
             label: '系统管理',
@@ -123,14 +147,12 @@ const LayOut = () => {
     ];
     useEffect(() => {
         if (location.pathname) {
-            console.log('location.pathname', location.pathname);
             setSelectedKeys([location.pathname === '/' ? '/welcome' : location.pathname]);
             if (subMenuActive[location.pathname]) {
                 setOpenKeys([subMenuActive[location.pathname]]);
             }
         }
     }, []);
-    console.log('selectedKeys', selectedKeys);
 
     return (
         <Layout className={styles.homeLayOut}>
@@ -158,7 +180,8 @@ const LayOut = () => {
                         minHeight: 280,
                     }}
                 >
-                    <Outlet />
+                    <div id="subapp-viewport"></div>
+                    {/* <Outlet /> */}
                 </Content>
             </Layout>
         </Layout >
